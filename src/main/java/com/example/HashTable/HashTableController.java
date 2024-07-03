@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/hashtable")
-@CrossOrigin
+
 public class HashTableController {
     final
     HashTableService hashTableService;
@@ -41,8 +41,10 @@ public class HashTableController {
     }
 
     @GetMapping("/print")
-    public ResponseEntity<List<HashTableRowEntity>> print() {
-        List<HashTableRowEntity> table = hashTableService.getTable();
-        return ResponseEntity.ok(table);
+    public ResponseEntity<Integer> print() {
+        hashTableService.print();
+        return ResponseEntity.ok(1);
     }
+
+
 }
